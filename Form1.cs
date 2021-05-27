@@ -62,10 +62,21 @@ namespace day17_krustini_nullites
                 gaajiens.Text = "Gaajiens : O";
 
 
-
-            if (speele.uzvara > -1)
+            if (speele.uzvara == 8)
             {
-                gaajiens.Text = "UZVARA !";
+                gaajiens.Text = "NEIZŠĶIRTS !";
+            }
+
+                else
+
+           if (speele.uzvara > -1 && speele.uzvara < 8)
+            {
+                if (speele.g_skaits == 5 || speele.g_skaits == 7 || speele.g_skaits == 9)
+                gaajiens.Text = "UZVARA X !";
+
+                if (speele.g_skaits == 6 || speele.g_skaits == 8 )
+                    gaajiens.Text = "UZVARA O !";
+
                 /*
                 //3x horizontālas rindas
                 uzvaras_varianti[0] = statuss[0, 0] + statuss[1, 0] + statuss[2, 0];
@@ -93,7 +104,8 @@ namespace day17_krustini_nullites
                         speele.getDesa(0, 1).BackColor = Color.Green;
                         speele.getDesa(1, 1).BackColor = Color.Green;
                         speele.getDesa(2, 1).BackColor = Color.Green;
-                        break;
+             
+                       break;
 
                     case 2:
                         speele.getDesa(0, 2).BackColor = Color.Green;
@@ -136,6 +148,8 @@ namespace day17_krustini_nullites
 
 
         }
+
+
     }
 
     // ko mums vajag krustiņiem - nullītēm ?
@@ -156,6 +170,7 @@ namespace day17_krustini_nullites
         PictureBox[,] desas;
         string[,] statuss;
         public int uzvara;
+        public int g_skaits;
 
         // 9 pictureboksi
         // bildes - X un O
@@ -168,8 +183,9 @@ namespace day17_krustini_nullites
                 for (int j = 0; j < 3; j++)
                     statuss[i, j] = "";
 
-                    X_gaajiens = true;
+            X_gaajiens = true;
             uzvara = -1;
+            g_skaits = 0;
         }
 
         int Calc()
@@ -216,6 +232,9 @@ namespace day17_krustini_nullites
 
             //mouse click, jo tas ļauj viegli noteikt labo/kreiso peles taustu !
             desas[i, j].MouseClick += Desu_laukums_MouseClick;
+
+            
+
         }
 
         public PictureBox getDesa(int i, int j)
@@ -226,6 +245,7 @@ namespace day17_krustini_nullites
 
         private void Desu_laukums_MouseClick(object sender, MouseEventArgs e)
         {
+            
 
             //izpilda gājienu
             for (int i=0; i< 3; i++)
@@ -238,6 +258,8 @@ namespace day17_krustini_nullites
 
                         if (uzvara > -1)
                             return;
+                        
+                        g_skaits++;
 
                         if (X_gaajiens)
                         {
@@ -259,6 +281,11 @@ namespace day17_krustini_nullites
 
             //kalkulē rezultātu
             uzvara = Calc();
+
+            if (g_skaits == 9 && uzvara == -1)
+                uzvara = 8;//neizšķirts
+
+
         }
     }
     

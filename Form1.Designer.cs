@@ -48,7 +48,7 @@ namespace day17_krustini_nullites
             this.desasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1070, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1070, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,7 +57,7 @@ namespace day17_krustini_nullites
             this.desasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sāktToolStripMenuItem});
             this.desasToolStripMenuItem.Name = "desasToolStripMenuItem";
-            this.desasToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
+            this.desasToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.desasToolStripMenuItem.Text = "Desas";
             // 
             // sāktToolStripMenuItem
